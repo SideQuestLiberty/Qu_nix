@@ -1,5 +1,5 @@
 # Qu_nix
-Side **Qu**estLiberty's **Nix**OS (I know it feels cryptic seen like that, but it has some private implications behind).
+Side**Qu**estLiberty's **Nix**OS (I know it feels cryptic seen like that, but it has some private implications behind).
 
 This project is still in its very early stage (I created it on June 11, 2025 - right before exams, as a way to procrastinate studying. I got 87,5%.).
 I have more plans for the near future, notably including configuration of all the software installed, and developing my own desktop widgets using [outfoxxed's quickshell](https://quickshell.org/) (No barab., I won't use [AGS](https://aylur.github.io/ags/), I want to try out other things.).
