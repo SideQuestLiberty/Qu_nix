@@ -1,7 +1,13 @@
 { config, lib, ... }:
-# Enable NVidia drivers:
+# NVidia support configuration
 {
   services.xserver.videoDrivers = ["nvidia"];
+
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
   hardware = {
     # Enable OpenGL
     graphics.enable = true;

@@ -1,0 +1,61 @@
+[
+    {
+        "fallback": false,
+        "id": "acb65cc9",
+        "name": "Catppuccin",
+        "trigger": "cp",
+        "url": "https://github.com/orgs/catppuccin/repositories?q=%s"
+    },
+    {
+        "fallback": false,
+        "id": "9b1f9e55",
+        "name": "DeepL",
+        "trigger": "tr",
+        "url": "https://www.deepl.com/en/translator#auto/fr/%s"
+    },
+    {
+        "fallback": true,
+        "iconPath": ":duckduckgo",
+        "id": "8049fe1a",
+        "name": "DuckDuckGo",
+        "trigger": "ddg",
+        "url": "https://duckduckgo.com/?q=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":github",
+        "id": "f205dffa",
+        "name": "GitHub",
+        "trigger": "gh",
+        "url": "https://github.com/search?utf8=✓&q=%s"
+    },
+    {
+        "fallback": false,
+        "id": "292d4e93",
+        "name": "OpenStreetMap",
+        "trigger": "map",
+        "url": "https://www.openstreetmap.org/search?query=%s"
+    },
+    {
+        "fallback": true,
+        "id": "31b755a2",
+        "name": "Perplexity",
+        "trigger": "ai",
+        "url": "https://www.perplexity.ai/search?q=%s"
+    },
+    {
+        "fallback": false,
+        "id": "90c5c757",
+        "name": "Wikipedia",
+        "trigger": "wk",
+        "url": "https://fr.wikipedia.org/w/index.php?search=%s"
+    },
+    {
+        "fallback": false,
+        "iconPath": ":youtube",
+        "id": "62d8d34f",
+        "name": "YouTube",
+        "trigger": "yt",
+        "url": "https://www.youtube.com/results?search_query=%s"
+    }
+]

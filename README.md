@@ -2,18 +2,18 @@
 Side**Qu**estLiberty's **Nix**OS (I know it feels cryptic seen like that, but it has some private implications behind).
 
 This project is still in its very early stage (I created it on June 11, 2025 - right before exams, as a way to procrastinate studying. I got 87,5%.).
-I have more plans for the near future, notably including configuration of all the software installed, and developing my own desktop widgets using [outfoxxed's quickshell](https://quickshell.org/) (No barab., I won't use [AGS](https://aylur.github.io/ags/), I want to try out other things.).
+I have more plans for the near future, notably including more of the programs configurations, as well as developing my own desktop widgets using [outfoxxed's quickshell](https://quickshell.org/) (No [barab.](https://github.com/Baraban511), I won't use [AGS](https://aylur.github.io/ags/), I want to try out other things.).
 ## How to install:
 1. Clone this repository
 2. Replace `Qu_nix/NixOS/hardware-configuration.nix` with your own (by default at `/etc/nixos/hardware-configuration.nix`)
 3. Edit `Qu_nix/flake.nix` to your liking
 4. When rebuilding for the first time:
 ```
-sudo nixos-rebuild boot --flake /path/to/Qu_nix/#yourhostname; reboot
+sudo nixos-rebuild boot --flake </path/to/Qu_nix>#Qu_nix; reboot
 ```
-5. When rebuilding after that, given you did **not** change your hostname _AND_ the `/path/to/Qu_nix` _AND_ shell aliases, and you filled `/Qu_nix/flake.nix` accordingly:
+5. When rebuilding after that, given you did **not** change the `</path/to/Qu_nix>` _AND_ shell aliases, and you filled `Qu_nix/flake.nix` accordingly:
 ```
-rebuild
+rebuild; reboot
 ```
 ## Contributing
 If you find a bug or security issue, please create a pull request or issue, or let me know by any other mean you find.

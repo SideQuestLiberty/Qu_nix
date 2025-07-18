@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ lib, config, pkgs, user, ... }:
 # Boot sequence configuration & theming
 {
   # Grub2 Bootloader
@@ -11,8 +11,8 @@
       enableCryptodisk = true;
       useOSProber = false;
       device = "nodev";
-      theme = ( pkgs.catppuccin-grub.override { flavor = user.CP-flavor; } );
-      splashImage = ./../wallpapers/nixos-nord-mocha.png;
+      theme = ( pkgs.catppuccin-grub.override { flavor = user.CPflavor; } );
+      splashImage = ./../wallpapers/nixos-mocha.png;
     };
   };
 
@@ -20,9 +20,9 @@
   # Plymouth splashscreen
   boot.plymouth = {
     enable = true;
-    theme = "catppuccin-${user.CP-flavor}";
+    theme = "catppuccin-${user.CPflavor}";
     themePackages = [
-        (pkgs.catppuccin-plymouth.override { variant = user.CP-flavor; })
+        (pkgs.catppuccin-plymouth.override { variant = user.CPflavor; })
     ];
   };
 
@@ -84,9 +84,9 @@
   # Link the wallpaper for ReGreet
   environment.etc.greetd-wallpaper = {
     # Make the sourced file immutable as part of the /nix/store/
-    source = ./../wallpapers/forest-sunset-macchiato.jpg;
+    source = ./../wallpapers/nixos-snowman-mocha.png;
     # Symlink to it at /etc/greetd/wallpaper.jpg
-    target = "greetd/wallpaper.jpg";
+    target = "greetd/wallpaper.png";
   };
 
 
@@ -96,11 +96,12 @@
     package = pkgs.greetd.regreet;
 
     # Customization & theming, converted to /etc/greetd/regreet.toml
-    theme.name = "catppuccin-${user.CP-flavor}-${user.CP-accent}-standard";
-    cursorTheme.name = "Catppuccin ${lib.toSentenceCase user.CP-flavor} Light";
+    # The packages for the themes and font are in ./customization.nix
+    theme.name = "catppuccin-${user.CPflavor}-${user.CPaccent}-standard";
+    cursorTheme.name = "Catppuccin ${lib.toSentenceCase user.CPflavor} Light";
     iconTheme.name = "Papirus-Dark";
     font = {
-      name = "MonaspiceNe Nerd Font";
+      name = "MonaspiceXe Nerd Font";
       size = 14;
     };
     settings = {

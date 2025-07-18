@@ -1,5 +1,5 @@
 { config, pkgs, user, inputs, ... }:
-
+# Packages configuration
 {
   # Configuration of the Package Manager (nix)
   nix = {
@@ -15,6 +15,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment.sessionVariables = {
+    # Hint Electron apps to use Wayland
+    NIXOS_OZONE_WL = "1";
+    # Set default editor
+    EDITOR = "zeditor";
+  };
+
   # Configure packages installed in system profile
   programs = {
     bash = {
@@ -23,18 +30,13 @@
       completion.enable = true;
       shellAliases = {
         config = "zeditor ${user.configPath}; exit";
-        rebuild = "sudo nixos-rebuild boot --upgrade --flake ${user.configPath}#${user.hostname}";
+        rebuild = "sudo nixos-rebuild boot --flake ${user.configPath}#Qu_nix";
       };
     };
     hyprland = {
       enable = true;                         # Smooth Wayland tiling compositor
       xwayland.enable = true;
       withUWSM = true;
-    };
-    river = {
-      enable = true;                   # Customizable Wayland tiling compositor
-      xwayland.enable = true;
-      extraPackages = [  ];
     };
     neovim = {
       enable = true;                               # Productive terminal editor
@@ -44,9 +46,8 @@
     };
     firefox = {
       enable = true;                                # Browser, privacy included
-      package = pkgs.firefox-devedition;
-      policies = import ./firefox-policies.nix;
-      preferences = import ./firefox-preferences.nix;
+      package = pkgs.librewolf;
+      policies = import ./../Firefox/policies.nix; # TODO: make this work
     };
     steam = {
       enable = true;                          # Game store / library / launcher
@@ -55,6 +56,10 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
+    };
+    gamescope = {             # Launch an environment similar to the Steam deck
+      enable = true;
+      capSysNice = true;
     };
     gamemode = {
       enable = true;                               # System optimizer for Games
@@ -75,8 +80,8 @@
 
   environment.systemPackages = with pkgs;
   let
-    fromInputs = { pkgName, pkgVersion ? "default" }:
-      inputs."${pkgName}".packages."${user.system}"."${pkgVersion}";
+    fromInputs = pkgName:
+      inputs."${pkgName}".packages."${user.system}".default;
   in [
     ### NEEDED AS DEPENDENCIES                       NEEDED AS DEPENDENCIES ###
     nvidia-vaapi-driver                 # Video-Audio hardware acceleration API
@@ -87,28 +92,32 @@
     kitty                                      # Customizable terminal emulator
     nemo-with-extensions                 # Customizable file explorer from Mint
     albert                                  # Minimalistic application launcher
-    zed-editor                # Fast, Reliable, Feature-Rich (frfr) text editor
+    ente-auth                                            # Free secured 2FA app
+    proton-pass                                # Private, free Password Manager
+    protonvpn-cli                                           # Private, free VPN
+    zed-editor-fhs            # Fast, Reliable, Feature-Rich (frfr) text editor
     obsidian                                      # Featureful notes-taking app
     oculante                                            # Image viewer & editor
     beeper                                                 # Universal chat app
     vesktop    # Vencord faster, lighter, privater, screensharer discord client
     freetube       # TEST (also test redirect extension) Private youtube client
     spotify-player                             # Terminal music player & Daemon
+    cemu                                   # Highly configurable Wii-U emulator
+    ukmm                                              # Zelda: BotW mod manager
     prismlauncher                                 # Minecraft instances manager
+    ffmpeg-full                      # Anything you would need to handle videos
     lxqt.qps                                         # Process viewer & manager
     mangohud                                 # FPS, Heat & CPU/GPU load Overlay
     fastfetch                            # Fetch and display system information
     catppuccinifier-cli                         # Apply color palette to images
-    ((
-      fromInputs { pkgName = "zen-browser"; pkgVersion = "beta-unwrapped"; }
-    ).override {
+    (inputs.zen-browser.packages."${user.system}".beta-unwrapped.override {
       applicationName = "Zen Browser";                  # Gecko Sidebar Browser
-      policies = import ./firefox-policies.nix;
+      policies = import ./../Firefox/policies.nix;
     })
 
     ### UTILITIES                                                 UTILITIES ###
+    (fromInputs "quickshell")                            # DIY Qt widget system
     dunst                       # Lightwheight customizable notification Daemon
-    (fromInputs { pkgName = "quickshell"; })             # DIY Qt widget system
     swaylock-effects                                   # Screen locking utility
     swaybg                                             # Basic wallpaper Daemon
     swww                                            # Animated wallpaper Daemon
@@ -120,14 +129,6 @@
     brightnessctl                             # Screen backlight control Daemon
     wl-gammactl                   # Brightness, contrast & gamma control Daemon
     hyprlang                                  # Hyprland configuration language
-
-    ### CUSTOMIZATION                                         CUSTOMIZATION ###
-    papirus-icon-theme                                 # Icon theme with extras
-    catppuccin-cursors."${user.CP-flavor}Light"# Soothing pastel themed cursors
-    (catppuccin-gtk.override {                 # Soothing pastel themes for GTK
-      variant = user.CP-flavor;
-      accents = [ user.CP-accent ];
-    })
   ];
 
   fonts = {
@@ -157,9 +158,9 @@
     fontconfig.useEmbeddedBitmaps = true;
 
     fontconfig.defaultFonts = {
-      serif = ["Noto Serif"];
+      serif = ["Tinos Nerd Font"];
       sansSerif = ["Noto Sans"];
-      monospace = ["Hack"];
+      monospace = ["MonaspiceNe Nerd Font"];
       emoji = ["Noto Color Emoji"];
     };
   };
