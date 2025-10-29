@@ -1,5 +1,5 @@
-theme = "dracula"
-client_id = "65b708073fc0480ea92a077233ca87bd"
+theme = "Catppuccin-mocha"
+client_id = "6osos8ayl5fl04j94qdevmxd6"
 client_port = 8080
 login_redirect_uri = "http://127.0.0.1:8989/login"
 playback_format = """

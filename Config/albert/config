@@ -7,18 +7,22 @@ telemetry=false
 global_handler_enabled=false
 trigger="alb "
 
+[application]
+enabled=true
+trigger="alb "
+
 [applications]
 enabled=true
 fuzzy=false
-ignore_show_in_keys=false
+ignore_show_in_keys=true
 split_camel_case=false
 terminal=kitty
 trigger=!
 use_acronyms=false
 use_exec=false
-use_generic_name=true
+use_generic_name=false
 use_keywords=false
-use_non_localized_name=true
+use_non_localized_name=false
 
 [caffeine]
 enabled=false
@@ -35,8 +39,8 @@ persistent=false
 
 [datetime]
 enabled=true
-show_date_on_empty_query=true
-trigger=", "
+show_date_on_empty_query=false
+trigger=","
 
 [docs]
 enabled=true
@@ -59,7 +63,7 @@ home\quelqu_n\mimeFilters=inode/directory
 home\quelqu_n\nameFilters=@Invalid()
 home\quelqu_n\scanInterval=10
 home\quelqu_n\useFileSystemWatches=false
-paths=/home/quelqu_n, /home/quelqu_n/.config
+paths=/home/quelqu_n
 trigger=:
 
 [inhibit_sleep]
@@ -77,7 +81,8 @@ trigger="plug "
 enabled=true
 
 [python.copyq]
-enabled=false
+enabled=true
+trigger=<
 
 [system]
 command_poweroff=poweroff
@@ -89,7 +94,7 @@ logout_enabled=false
 suspend_enabled=false
 title_poweroff=po
 title_reboot=rs
-trigger="$ "
+trigger=$
 
 [triggers]
 global_handler_enabled=false
@@ -101,7 +106,7 @@ global_handler_enabled=true
 trigger="web "
 
 [widgetboxmodel_themes]
-trigger="* "
+trigger=*
 
 [widgetsboxmodel]
 alwaysOnTop=true
@@ -116,7 +121,7 @@ itemCount=4
 lightTheme=Default System Palette
 quitOnClose=false
 showCentered=false
-systemShadow=true
+systemShadow=false
 
 [widgetsboxmodel-ng]
 alwaysOnTop=true
@@ -126,4 +131,5 @@ followCursor=false
 hideOnFocusLoss=false
 historySearch=true
 itemCount=5
+quitOnClose=false
 showCentered=true

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 # NVidia support configuration
 {
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
@@ -31,7 +31,6 @@
       # depending on their power usage, which should help performance.
       dynamicBoost.enable = true;
 
-
       # Enable if graphical corruption / crashes after sleep mode
       powerManagement.enable = false;
       powerManagement.finegrained = false;
@@ -40,7 +39,7 @@
       # discrete NVidia GPU for better performances while keeping battery life.
       prime = {
         # Bus IDs for Intel and NVidia GPUs
-        intelBusId  = "PCI:0:2:0";
+        intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
         # Sync Mode reduces screen tearing and offers continuous performances
         # but uses more power (the GPU never sleeps).
@@ -58,7 +57,7 @@
       system.nixos.tags = [ "portable" ];
       hardware.nvidia.prime = {
         sync.enable = false;
-        # Offload Mode puts the GPU to sleep for battery live unless
+        # Offload Mode puts the GPU to sleep for battery life unless
         # explicitely called to run a program: "nvidia-offload-run <program>".
         offload = {
           enable = true;

@@ -1,0 +1,156 @@
+{
+    "theme": "Mocha",
+    "picker_state": {
+        "path": "/home/quelqu_n/Cemu/BNPs/LinklePack-Base",
+        "history": [],
+        "path_input": "/home/quelqu_n/Cemu/BNPs/LinklePack-Base",
+        "entries": [
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/1_Linkle3_mod.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/2_girly_animation_pack.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/3_unofficial_Linkle3_patch_repack.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/4_Linkle_dialogue_mod.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/5_unofficial_Linkle3_armor_icons.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/6_less_embarrassed_Paya.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/7_Linkle_title_screen.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/8_LARC_underwear_body.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/9_korok_paraglider.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/LinklePack_Base.zip",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/unofficiallinkle30armoricons_simple_hd_1_1_2.bnp",
+            "/home/quelqu_n/Cemu/BNPs/LinklePack-Base/unofficiallinkle30armoricons_vanilla-esque_hd_1_1_2.bnp"
+        ]
+    },
+    "tree": {
+        "surfaces": [
+            {
+                "Main": {
+                    "nodes": [
+                        {
+                            "Horizontal": {
+                                "rect": {
+                                    "min": {
+                                        "x": 0.0,
+                                        "y": 22.0
+                                    },
+                                    "max": {
+                                        "x": 1908.0,
+                                        "y": 1068.0
+                                    }
+                                },
+                                "fraction": 0.85
+                            }
+                        },
+                        {
+                            "Vertical": {
+                                "rect": {
+                                    "min": {
+                                        "x": 0.0,
+                                        "y": 22.0
+                                    },
+                                    "max": {
+                                        "x": 1622.0,
+                                        "y": 1068.0
+                                    }
+                                },
+                                "fraction": 0.5
+                            }
+                        },
+                        {
+                            "Leaf": {
+                                "rect": {
+                                    "min": {
+                                        "x": 1622.0,
+                                        "y": 22.0
+                                    },
+                                    "max": {
+                                        "x": 1908.0,
+                                        "y": 1068.0
+                                    }
+                                },
+                                "viewport": {
+                                    "min": {
+                                        "x": 1622.0,
+                                        "y": 46.0
+                                    },
+                                    "max": {
+                                        "x": 1908.0,
+                                        "y": 1068.0
+                                    }
+                                },
+                                "tabs": ["Info", "Install", "Deploy"],
+                                "active": 2,
+                                "scroll": 0.0
+                            }
+                        },
+                        {
+                            "Leaf": {
+                                "rect": {
+                                    "min": {
+                                        "x": 0.0,
+                                        "y": 22.0
+                                    },
+                                    "max": {
+                                        "x": 1622.0,
+                                        "y": 545.0
+                                    }
+                                },
+                                "viewport": {
+                                    "min": {
+                                        "x": 0.0,
+                                        "y": 46.0
+                                    },
+                                    "max": {
+                                        "x": 1622.0,
+                                        "y": 545.0
+                                    }
+                                },
+                                "tabs": ["Mods", "Package", "Settings"],
+                                "active": 0,
+                                "scroll": 0.0
+                            }
+                        },
+                        {
+                            "Leaf": {
+                                "rect": {
+                                    "min": {
+                                        "x": 0.0,
+                                        "y": 545.0
+                                    },
+                                    "max": {
+                                        "x": 1622.0,
+                                        "y": 1068.0
+                                    }
+                                },
+                                "viewport": {
+                                    "min": {
+                                        "x": 0.0,
+                                        "y": 569.0
+                                    },
+                                    "max": {
+                                        "x": 1622.0,
+                                        "y": 1068.0
+                                    }
+                                },
+                                "tabs": ["Log"],
+                                "active": 0,
+                                "scroll": 0.0
+                            }
+                        },
+                        "Empty",
+                        "Empty"
+                    ],
+                    "focused_node": 2
+                }
+            }
+        ],
+        "focused_surface": 0,
+        "translations": {
+            "tab_context_menu": {
+                "close_button": "Close",
+                "eject_button": "Eject"
+            },
+            "window": {
+                "close_button_tooltip": "This window contains non-closable tabs."
+            }
+        }
+    }
+}

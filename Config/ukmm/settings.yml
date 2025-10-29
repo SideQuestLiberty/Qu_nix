@@ -1,0 +1,24 @@
+current_mode: WiiU
+system_7z: false
+storage_dir: /home/quelqu_n/.local/share/ukmm
+check_updates: Stable
+show_changelog: true
+last_version: 0.15.0
+wiiu_config:
+  language: USen
+  profile: Default
+  dump:
+    bin_type: Nintendo
+    source:
+      type: Unpacked
+      host_path: /home/quelqu_n/Cemu/BotW_Game
+      content_dir: /home/quelqu_n/Cemu/BotW_Game/BOTW_Game_00050000101c9400/content
+      update_dir: /home/quelqu_n/Cemu/BotW_Game/BOTW_Update_0005000e101c9400/content
+      aoc_dir: /home/quelqu_n/Cemu/BotW_Game/BOTW_DLC_0005000c101c9400/content/0010
+  deploy_config:
+    output: /home/quelqu_n/.local/share/Cemu/graphicPacks/BreathOfTheWild_UKMM
+    method: Symlink
+    auto: true
+    cemu_rules: true
+    executable: cemu
+switch_config: null

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, user, inputs,  ... }:
+{ user, ... }:
 # Global configuration
 {
   imports = [
@@ -12,10 +12,8 @@
     ./hardware-configuration.nix
   ];
 
-
   console.keyMap = "fr";
   services.xserver.xkb.layout = "fr";
-
 
   # Select internationalisation properties.
   time.timeZone = "Europe/Paris";
@@ -34,15 +32,17 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-
   # User accounts
   users.users.${user.hostname} = {
     isNormalUser = true;
     description = "${user.name}";
-    extraGroups = [ "networkmanager" "wheel" "gamemode" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "gamemode"
+    ];
+    packages = [ ];
   };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

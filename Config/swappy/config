@@ -1,0 +1,10 @@
+[Default]
+save_filename_format = shot_%y-%m-%d_%Hh%M.png
+save_dir   = ~/Main/Media/Screenshots/
+text_font  = sans-serif
+fill_shape = false
+early_exit = true
+show_panel = true
+paint_mode = blur
+line_size  = 5
+text_size  = 20

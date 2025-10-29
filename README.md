@@ -13,7 +13,7 @@ sudo nixos-rebuild boot --flake </path/to/Qu_nix>#Qu_nix; reboot
 ```
 5. When rebuilding after that, given you did **not** change the `</path/to/Qu_nix>` _AND_ shell aliases, and you filled `Qu_nix/flake.nix` accordingly:
 ```
-rebuild; reboot
+rebuild switch;
 ```
 ## Contributing
 If you find a bug or security issue, please create a pull request or issue, or let me know by any other mean you find.

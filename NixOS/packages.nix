@@ -1,15 +1,23 @@
-{ config, pkgs, user, inputs, ... }:
+{
+  pkgs,
+  user,
+  inputs,
+  ...
+}:
 # Packages configuration
 {
   # Configuration of the Package Manager (nix)
   nix = {
     channel.enable = false;
     optimise.automatic = true;
-    optimise.dates = ["monthly"];
+    optimise.dates = [ "weekly" ];
     gc.automatic = true;
-    gc.dates = "monthly";
+    gc.dates = "weekly";
     # Enable Flakes
-    settings.experimental-features = ["nix-command"  "flakes"];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   # Allow unfree packages
@@ -30,106 +38,102 @@
       completion.enable = true;
       shellAliases = {
         config = "zeditor ${user.configPath}; exit";
-        rebuild = "sudo nixos-rebuild boot --flake ${user.configPath}#Qu_nix";
+        rebuild = "sudo nixos-rebuild --upgrade-all --flake ${user.configPath}#Qu_nix";
       };
     };
     hyprland = {
-      enable = true;                         # Smooth Wayland tiling compositor
+      enable = true; # Smooth Wayland tiling compositor
       xwayland.enable = true;
-      withUWSM = true;
-    };
-    neovim = {
-      enable = true;                               # Productive terminal editor
-      defaultEditor = false;
-      viAlias = true;
-      vimAlias = true;
-    };
-    firefox = {
-      enable = true;                                # Browser, privacy included
-      package = pkgs.librewolf;
-      policies = import ./../Firefox/policies.nix; # TODO: make this work
+      #withUWSM = true;
     };
     steam = {
-      enable = true;                          # Game store / library / launcher
-      extraPackages = [ pkgs.gamescope ];
-      gamescopeSession.enable = true;
+      enable = true; # Game store / library / launcher
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
-    };
-    gamescope = {             # Launch an environment similar to the Steam deck
-      enable = true;
-      capSysNice = true;
-    };
+    }; # TODO: Add gamescope and MAKiT work
     gamemode = {
-      enable = true;                               # System optimizer for Games
+      enable = true; # System optimizer for Games
       enableRenice = true;
     };
     obs-studio = {
-      enable = true;                                 # Screen recording utility
+      enable = true; # Screen recording utility
       plugins = with pkgs.obs-studio-plugins; [
-          obs-vaapi                # Enable GPU Hardware encoder through NVidia
-          input-overlay                    # Overlays input on top of recording
-          obs-backgroundremoval   # Replace background in portait video & image
+        obs-vaapi # Enable GPU Hardware encoder through NVidia
+        input-overlay # Overlays input on top of recording
+        obs-backgroundremoval # Replace background in portait video & image
       ];
     };
-    file-roller.enable = true;                     # File archiver and unzipper
-    git.enable = true;                                # Version control utility
+    hyprlock.enable = true; # Screen locking utility
+    file-roller.enable = true; # File archiver and unzipper
+    git.enable = true; # Version control utility
   };
 
+  environment.systemPackages =
+    with pkgs;
+    let
+      fromInputs = name: inputs."${name}".packages."${user.system}".default;
+    in
+    [
+      ### NEEDED AS DEPENDENCIES
+      egl-wayland # NVidia EGL support library for Wayland
+      nvidia-vaapi-driver # Video-Audio hardware acceleration API
+      hyprpolkitagent # Polkit agent: allows apps to elevate privileges
+      ffmpeg-full # Anything you would need to handle videos
+      libsecret # Secret handling library
+      wl-clipboard # Needed for swappy, clipboard utility
 
-  environment.systemPackages = with pkgs;
-  let
-    fromInputs = pkgName:
-      inputs."${pkgName}".packages."${user.system}".default;
-  in [
-    ### NEEDED AS DEPENDENCIES                       NEEDED AS DEPENDENCIES ###
-    nvidia-vaapi-driver                 # Video-Audio hardware acceleration API
-    egl-wayland                        # NVidia EGL support library for Wayland
-    hyprpolkitagent           # Polkit agent: allows apps to elevate privileges
+      ### BASIC SOFTWARE
+      kitty # Customizable terminal emulator
+      tofi # Fast application launcher
+      albert # Customizable launcher
+      nemo-with-extensions # Nautilus fork with more features
+      zed-editor-fhs # Fast, Reliable, Feature-Rich (frfr) text editor
+      anytype # Featureful notes-taking app
+      libreoffice-qt6-fresh # Office documents editors
+      gimp3-with-plugins # Image viewer & editor
+      vlc # Everybody knows what VLC is
+      protonmail-bridge # Bridge to use ProtonMail with other clients
+      proton-pass # Private, free Password Manager
+      protonvpn-gui # Private, free VPN
+      beeper # Universal chat app
+      vesktop # Vencord faster, lighter, privater, screensharer discord client
+      netflix # Netflix through Google chrome
+      spotify-player # Terminal music player & Daemon
+      cemu # Highly configurable Wii-U emulator
+      ukmm # Zelda: BotW mod manager
+      prismlauncher # Minecraft instances manager
+      davinci-resolve # Editing software
+      blender # 3D creation/animation software
+      godot # 2D/3D Game engine
+      lmms # Digital Audio Workstation
+      wine-wayland # Win32 API Linux implementation for Wayland
+      lxqt.qps # Process viewer & manager
+      mangohud # FPS, Heat & CPU/GPU load Overlay
+      fastfetch # Fetch and display system information
+      (inputs.zen-browser.packages."${user.system}".beta-unwrapped.override {
+        applicationName = "Zen Browser"; # Gecko Sidebar Browser
+        policies = import ./../Firefox/policies.nix;
+      })
 
-    ### BASIC SOFTWARE                                       BASIC SOFTWARE ###
-    kitty                                      # Customizable terminal emulator
-    nemo-with-extensions                 # Customizable file explorer from Mint
-    albert                                  # Minimalistic application launcher
-    ente-auth                                            # Free secured 2FA app
-    proton-pass                                # Private, free Password Manager
-    protonvpn-cli                                           # Private, free VPN
-    zed-editor-fhs            # Fast, Reliable, Feature-Rich (frfr) text editor
-    obsidian                                      # Featureful notes-taking app
-    oculante                                            # Image viewer & editor
-    beeper                                                 # Universal chat app
-    vesktop    # Vencord faster, lighter, privater, screensharer discord client
-    freetube       # TEST (also test redirect extension) Private youtube client
-    spotify-player                             # Terminal music player & Daemon
-    cemu                                   # Highly configurable Wii-U emulator
-    ukmm                                              # Zelda: BotW mod manager
-    prismlauncher                                 # Minecraft instances manager
-    ffmpeg-full                      # Anything you would need to handle videos
-    lxqt.qps                                         # Process viewer & manager
-    mangohud                                 # FPS, Heat & CPU/GPU load Overlay
-    fastfetch                            # Fetch and display system information
-    catppuccinifier-cli                         # Apply color palette to images
-    (inputs.zen-browser.packages."${user.system}".beta-unwrapped.override {
-      applicationName = "Zen Browser";                  # Gecko Sidebar Browser
-      policies = import ./../Firefox/policies.nix;
-    })
-
-    ### UTILITIES                                                 UTILITIES ###
-    (fromInputs "quickshell")                            # DIY Qt widget system
-    dunst                       # Lightwheight customizable notification Daemon
-    swaylock-effects                                   # Screen locking utility
-    swaybg                                             # Basic wallpaper Daemon
-    swww                                            # Animated wallpaper Daemon
-    copyq                       # Clipboard manager (can integrate with albert)
-    slurp                                 # Screenshot region selecting utility
-    grim                                           # Screenshot capture utility
-    swappy                                         # Screenshot editing utility
-    wl-clipboard                         # Needed for swappy, clipboard utility
-    brightnessctl                             # Screen backlight control Daemon
-    wl-gammactl                   # Brightness, contrast & gamma control Daemon
-    hyprlang                                  # Hyprland configuration language
-  ];
+      ### UTILITIES
+      (fromInputs "quickshell") # DIY Qt widget system
+      wev # Wayland Event Viewer
+      input-remapper # Remap input-specific keys
+      dunst # Lightwheight customizable notification Daemon
+      slurp # Screenshot region selecting utility
+      grim # Screenshot capture utility
+      swappy # Screenshot editing utility
+      # TODO: get a clipboard manager
+      brightnessctl # Screen backlight control Daemon
+      hyprsunset # Blue light filter (& gamma filter)
+      hyprpaper # IPC-controlled wallpaper utility
+      hyprpicker # Color picking utility
+      hyprland-qt-support # QML style for hypr* qt6 apps
+      nil # Language server for Nix
+      nixd # Language server for Nix
+      hyprls # Language server for Hyprlang
+    ];
 
   fonts = {
     packages = with pkgs; [
@@ -158,10 +162,10 @@
     fontconfig.useEmbeddedBitmaps = true;
 
     fontconfig.defaultFonts = {
-      serif = ["Tinos Nerd Font"];
-      sansSerif = ["Noto Sans"];
-      monospace = ["MonaspiceNe Nerd Font"];
-      emoji = ["Noto Color Emoji"];
+      serif = [ "Tinos Nerd Font" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "MonaspiceNe Nerd Font" ];
+      emoji = [ "Noto Color Emoji" ];
     };
   };
 }

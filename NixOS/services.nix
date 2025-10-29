@@ -1,4 +1,4 @@
-{ config, user, ... }:
+{ user, ... }:
 # Services & dependencies for other programs configuration
 {
   networking = {
@@ -15,20 +15,23 @@
     #proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
 
-
   security.rtkit.enable = true;
   security.polkit.enable = true;
 
+  services.gvfs.enable = true;
+  services.blueman.enable = true;
+  services.hypridle.enable = true;
+  services.hardware.openrgb.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  hardware.openrazer.enable = true;
 
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    settings = {};
-    input = {};
-    network = {};
+    settings = { };
+    input = { };
+    network = { };
   };
-
-  services.blueman.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -39,10 +42,6 @@
     audio.enable = true;
     wireplumber.enable = true;
   };
-
-  services.gvfs.enable = true;
-
-  services.hardware.openrgb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

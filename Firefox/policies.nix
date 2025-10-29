@@ -1,32 +1,35 @@
-  # See about:policies
+# See about:policies
 {
   Preferences = import ./preferences.nix;
 
   # Configure extensions
   ExtensionUpdate = true;
   ExtensionSettings =
-  # You can find the extension ID in the URL of the addon page ;
-  # - if the installation_mode is set to "blocked", the UUID will be in a popup
-  # - else, go to about:support and you should find the UUID under "extensions"
-  let NewExt = ID: UUID: {
-    "${UUID}" = {
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/${ID}/latest.xpi";
-      installation_mode = "force_installed";
+    # You can find the extension ID in the URL of the addon page ;
+    # - if the installation_mode is set to "blocked", the UUID will be in a popup
+    # - else, go to about:support and you should find the UUID under "extensions"
+    let
+      NewExt = ID: UUID: {
+        "${UUID}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/${ID}/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+    in
+    # The // operator merges all of these sets into a single set
+    NewExt "ublock-origin" "uBlock0@raymondhill.net"
+    // NewExt "decentraleyes" "jid1-BoFifL9Vbdl2zQ@jetpack"
+    // NewExt "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack"
+    // NewExt "istilldontcareaboutcookies" "idcac-pub@guus.ninja"
+    // NewExt "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}"
+    // NewExt "shorts-deflector" "shortsdeflector@addons.com"
+    // NewExt "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}"
+    // NewExt "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me"
+    // NewExt "darkreader" "addon@darkreader.org"
+    // NewExt "styl-us" "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}"
+    // {
+      "*".installation_mode = "blocked";
     };
-  };
-  in # The // operator merges all of these sets into a single set
-    NewExt "ublock-origin" "uBlock0@raymondhill.net" //
-    NewExt "decentraleyes" "jid1-BoFifL9Vbdl2zQ@jetpack" //
-    NewExt "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack" //
-    NewExt "istilldontcareaboutcookies" "idcac-pub@guus.ninja" //
-    NewExt "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}" //
-    NewExt "shorts-deflector" "shortsdeflector@addons.com" //
-    NewExt "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}" //
-    NewExt "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me" //
-    NewExt "darkreader" "addon@darkreader.org" //
-    NewExt "styl-us" "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" //
-    NewExt "catppuccin-mocha-teal" "{3f8844e2-3fc1-4104-9773-0f4bb98eab69}" //
-    { "*".installation_mode = "blocked"; };
 
   # Configure Firefox suggest
   SearchSuggestEnabled = false;
@@ -86,13 +89,13 @@
   # Use the provided template to add your preferred Bookmarks
   NoDefaultBookmarks = true;
   Bookmarks = [
-#    {
-#      Title = "";
-#      URL = "";
-#      Favicon = "";
-#      Placement = "";
-#      Folder = "";
-#    }
+    #{
+    #  Title = "";
+    #  URL = "";
+    #  Favicon = "";
+    #  Placement = "";
+    #  Folder = "";
+    #}
   ];
 
   # Privacy settings

@@ -1,0 +1,41 @@
+### STYLE
+
+# TEXT
+num-results = 4
+result-spacing = 2
+placeholder-text = "Something ..."
+
+# FONT
+font = MonaspiceNe Nerd Font
+font-size = 16
+font-features = ""
+
+# WINDOW
+width = 33%
+height = 15%
+outline-width = 0
+border-width = 2
+corner-radius = 5
+
+padding-top = 4
+padding-bottom = 0
+padding-right = 0
+padding-left = 8
+
+# COLORS
+# Catppuccin Mocha palette
+outline-color = #94e2d5
+border-color = #94e2d5
+background-color = #11111b
+
+prompt-color = #f38ba8
+input-color = #cba6f7
+text-color = #cdd6f4
+selection-color = #94e2d5
+selection-match-color = #94e2d5AA
+
+
+### BEHAVIOR
+hide-cursor = true
+drun-launch = true
+multi-instance = true

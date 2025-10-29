@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+    <logflag>0</logflag>
+    <advanced_ppc_logging>false</advanced_ppc_logging>
+    <mlc_path></mlc_path>
+    <permanent_storage>true</permanent_storage>
+    <language>0</language>
+    <use_discord_presence>true</use_discord_presence>
+    <fullscreen_menubar>true</fullscreen_menubar>
+    <feral_gamemode>false</feral_gamemode>
+    <check_update>true</check_update>
+    <receive_untested_updates>false</receive_untested_updates>
+    <save_screenshot>false</save_screenshot>
+    <vk_warning>false</vk_warning>
+    <gp_download>false</gp_download>
+    <macos_disclaimer>false</macos_disclaimer>
+    <fullscreen>true</fullscreen>
+    <proxy_server></proxy_server>
+    <disable_screensaver>true</disable_screensaver>
+    <play_boot_sound>true</play_boot_sound>
+    <console_language>1</console_language>
+    <window_position>
+        <x>-1</x>
+        <y>-1</y>
+    </window_position>
+    <window_size>
+        <x>-1</x>
+        <y>-1</y>
+    </window_size>
+    <window_maximized>false</window_maximized>
+    <open_pad>false</open_pad>
+    <pad_position>
+        <x>-1</x>
+        <y>-1</y>
+    </pad_position>
+    <pad_size>
+        <x>-1</x>
+        <y>-1</y>
+    </pad_size>
+    <pad_maximized>false</pad_maximized>
+    <show_icon_column>true</show_icon_column>
+    <GameList>
+        <style>0</style>
+        <order></order>
+        <name_width>500</name_width>
+        <version_width>60</version_width>
+        <dlc_width>50</dlc_width>
+        <game_time_width>140</game_time_width>
+        <game_started_width>160</game_started_width>
+        <region_width>80</region_width>
+        <title_id>0</title_id>
+    </GameList>
+    <RecentLaunchFiles>
+        <Entry>/home/quelqu_n/Cemu/BotW_Game/BOTW_Game_00050000101c9400</Entry>
+    </RecentLaunchFiles>
+    <RecentNFCFiles/>
+    <GamePaths>
+        <Entry>/home/quelqu_n/Cemu/BotW_Game</Entry>
+    </GamePaths>
+    <GameCache/>
+    <GraphicPack>
+        <Entry filename="graphicPacks/BreathOfTheWild_GanonSleepsAlt/rules.txt"/>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Enhancements/rules.txt">
+            <Preset>
+                <category>Anisotropic Filtering</category>
+                <preset>High (4x)</preset>
+            </Preset>
+            <Preset>
+                <category>Reflections</category>
+                <preset>Enhanced Reflections</preset>
+            </Preset>
+            <Preset>
+                <category>Depth Of Field</category>
+                <preset>Enabled</preset>
+            </Preset>
+            <Preset>
+                <category>Reflection Range</category>
+                <preset>Medium (8 samples)</preset>
+            </Preset>
+            <Preset>
+                <category>Clarity</category>
+                <preset>Serfrost's Preset (Recommended)</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/DayLength/rules.txt">
+            <Preset>
+                <category>Fixed Time Of Day</category>
+                <preset>12:00</preset>
+            </Preset>
+            <Preset>
+                <category>Time between Blood Moons</category>
+                <preset>7 days (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Cloud Speed</category>
+                <preset>Scaled with day length (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Day Length</category>
+                <preset>24 minutes (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Clock Increment Frequency</category>
+                <preset>Update every minute</preset>
+            </Preset>
+            <Preset>
+                <category>Day/Night Cycle</category>
+                <preset>Enabled (Default)</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/Weather/rules.txt">
+            <Preset>
+                <category>Replace Thunderstorm With Rain Weather</category>
+                <preset>Thunderstorm with Rain</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Thunderstorm Weather</category>
+                <preset>Thunderstorm</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Heavy Snow Weather</category>
+                <preset>Heavy Snow</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Snow Weather</category>
+                <preset>Snow</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Heavy Rain Weather</category>
+                <preset>Heavy Rain</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Rain Weather</category>
+                <preset>Rain</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Cloudy Weather</category>
+                <preset>Cloudy</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Blue Sky With Rain Weather</category>
+                <preset>Blue Sky</preset>
+            </Preset>
+            <Preset>
+                <category>Replace Blue Sky Weather</category>
+                <preset>Blue Sky</preset>
+            </Preset>
+            <Preset>
+                <category>Replace All Weather</category>
+                <preset>None (Use Individual Settings)</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Graphics/rules.txt">
+            <Preset>
+                <category>Shadows</category>
+                <preset>High (200%)</preset>
+            </Preset>
+            <Preset>
+                <category>Anti-Aliasing</category>
+                <preset>NVIDIA FXAA</preset>
+            </Preset>
+            <Preset>
+                <category>Ultrawide HUD Mode</category>
+                <preset>Edge HUD (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Shadow Draw Distance</category>
+                <preset>Very High (Recommended)</preset>
+            </Preset>
+            <Preset>
+                <category>Resolution</category>
+                <preset>2560x1440 (2K)</preset>
+            </Preset>
+            <Preset>
+                <category>Aspect Ratio</category>
+                <preset>16:9 (Default)</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/CameraSensitivity/rules.txt">
+            <Preset>
+                <category>Additional Vertical Movement Sensitivity</category>
+                <preset>1x (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Additional Movement Sensitivity</category>
+                <preset>1.15x (Recommended)</preset>
+            </Preset>
+            <Preset>
+                <category>Camera Sensitivity</category>
+                <preset>1.4x (Recommended)</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/FPS++/rules.txt">
+            <Preset>
+                <category>Frame Average</category>
+                <preset>8 Frames Averaged (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Static Mode</category>
+                <preset>Disabled (Default, dynamically adjust game speed)</preset>
+            </Preset>
+            <Preset>
+                <category>Fence Type</category>
+                <preset>Performance Fence (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Cutscene FPS Limit</category>
+                <preset>Automatically Limit In Few Cutscenes (Recommended)</preset>
+            </Preset>
+            <Preset>
+                <category>Framerate Limit</category>
+                <preset>60FPS (ideal for 240/120/60Hz displays)</preset>
+            </Preset>
+            <Preset>
+                <category>Debug Options</category>
+                <preset>Disabled (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>FPS Limit</category>
+                <preset>60FPS Limit (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Mode</category>
+                <preset>Normal Settings</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/ExtendedMemory/rules.txt"/>
+        <Entry filename="../ukmm/wiiu/profiles/Default/merged/rules.txt"/>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/MenuCursorSpeed/rules.txt">
+            <Preset>
+                <category>Menu Navigation Speed</category>
+                <preset>1.5x</preset>
+            </Preset>
+        </Entry>
+        <Entry filename="graphicPacks/downloadedGraphicPacks/BreathOfTheWild/Mods/DivineLaserBeam/rules.txt">
+            <Preset>
+                <category>Laser Opacity</category>
+                <preset>75%</preset>
+            </Preset>
+            <Preset>
+                <category>Laser Color</category>
+                <preset>Cyan</preset>
+            </Preset>
+            <Preset>
+                <category>Color Saturation</category>
+                <preset>100% (Default)</preset>
+            </Preset>
+            <Preset>
+                <category>Show Laser</category>
+                <preset>Yes (Default)</preset>
+            </Preset>
+        </Entry>
+    </GraphicPack>
+    <Graphic>
+        <api>1</api>
+        <device>6a1d2a47f10a9c56b37ec589119d151a</device>
+        <VSync>0</VSync>
+        <GX2DrawdoneSync>true</GX2DrawdoneSync>
+        <UpscaleFilter>1</UpscaleFilter>
+        <DownscaleFilter>0</DownscaleFilter>
+        <FullscreenScaling>0</FullscreenScaling>
+        <AsyncCompile>true</AsyncCompile>
+        <vkAccurateBarriers>true</vkAccurateBarriers>
+        <Overlay>
+            <Position>0</Position>
+            <TextColor>4294967295</TextColor>
+            <TextScale>100</TextScale>
+            <FPS>true</FPS>
+            <DrawCalls>false</DrawCalls>
+            <CPUUsage>false</CPUUsage>
+            <CPUPerCoreUsage>false</CPUPerCoreUsage>
+            <RAMUsage>false</RAMUsage>
+            <VRAMUsage>false</VRAMUsage>
+            <Debug>false</Debug>
+        </Overlay>
+        <Notification>
+            <Position>1</Position>
+            <TextColor>4294967295</TextColor>
+            <TextScale>100</TextScale>
+            <ControllerProfiles>true</ControllerProfiles>
+            <ControllerBattery>false</ControllerBattery>
+            <ShaderCompiling>true</ShaderCompiling>
+            <FriendService>true</FriendService>
+        </Notification>
+    </Graphic>
+    <Audio>
+        <api>3</api>
+        <delay>2</delay>
+        <TVChannels>1</TVChannels>
+        <PadChannels>1</PadChannels>
+        <InputChannels>0</InputChannels>
+        <TVVolume>50</TVVolume>
+        <PadVolume>0</PadVolume>
+        <InputVolume>50</InputVolume>
+        <TVDevice></TVDevice>
+        <PadDevice></PadDevice>
+        <InputDevice></InputDevice>
+    </Audio>
+    <Account>
+        <PersistentId>2147483649</PersistentId>
+        <OnlineEnabled>false</OnlineEnabled>
+        <ActiveService>0</ActiveService>
+    </Account>
+    <AccountService/>
+    <Debug>
+        <CrashDumpUnix>1</CrashDumpUnix>
+        <GDBPort>1337</GDBPort>
+    </Debug>
+    <Input>
+        <DSUC host="127.0.0.1" port="26760"/>
+    </Input>
+    <EmulatedUsbDevices>
+        <EmulateSkylanderPortal>false</EmulateSkylanderPortal>
+        <EmulateInfinityBase>false</EmulateInfinityBase>
+        <EmulateDimensionsToypad>false</EmulateDimensionsToypad>
+    </EmulatedUsbDevices>
+</content>

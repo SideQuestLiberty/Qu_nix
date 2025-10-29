@@ -1,4 +1,10 @@
-{ lib, config, pkgs, user, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  user,
+  ...
+}:
 # Boot sequence configuration & theming
 {
   # Grub2 Bootloader
@@ -11,21 +17,19 @@
       enableCryptodisk = true;
       useOSProber = false;
       device = "nodev";
-      theme = ( pkgs.catppuccin-grub.override { flavor = user.CPflavor; } );
-      splashImage = ./../wallpapers/nixos-mocha.png;
+      theme = (pkgs.catppuccin-grub.override { flavor = user.CPflavor; });
+      splashImage = ./../wallpapers/snowman-mocha.png;
     };
   };
-
 
   # Plymouth splashscreen
   boot.plymouth = {
     enable = true;
     theme = "catppuccin-${user.CPflavor}";
     themePackages = [
-        (pkgs.catppuccin-plymouth.override { variant = user.CPflavor; })
+      (pkgs.catppuccin-plymouth.override { variant = user.CPflavor; })
     ];
   };
-
 
   boot.kernelParams = [
     # Allows Plymouth to display its screen
@@ -40,7 +44,6 @@
   ];
   boot.initrd.verbose = false;
   boot.consoleLogLevel = 3;
-
 
   # Create the config file for hyprland
   environment.etc.greetd-hyprland = {
@@ -80,15 +83,13 @@
     };
   };
 
-
   # Link the wallpaper for ReGreet
   environment.etc.greetd-wallpaper = {
     # Make the sourced file immutable as part of the /nix/store/
-    source = ./../wallpapers/nixos-snowman-mocha.png;
+    source = ./../wallpapers/snowman-mocha.png;
     # Symlink to it at /etc/greetd/wallpaper.jpg
     target = "greetd/wallpaper.png";
   };
-
 
   # Use ReGreet greetd graphical user interface ("greeter")
   programs.regreet = {
